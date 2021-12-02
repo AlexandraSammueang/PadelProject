@@ -22,7 +22,8 @@ namespace Padel
             }
             else
             {
-                _games[_games.Count-1].Point(player); //Takes the last element
+                _games[^1].Point(player);
+               // _games[_games.Count^1].Point(player); //Takes the last element
             }            
         }
     }
