@@ -8,8 +8,8 @@ namespace PadelTest
         [Fact] 
         public void Set_List_Test()
         {
-            var player1 = new Player("Alexandra");
-            var player2 = new Player("Fredrik");
+            var player1 = new Player("Player 1");
+            var player2 = new Player("Player 2");
             var set = new Set(player1, player2);
 
             for (int i = 0; i < 3; i++)
@@ -21,8 +21,8 @@ namespace PadelTest
         [Fact]
         public void SetTest_List_Limit_True()
         {
-            var player1 = new Player("Alexandra");
-            var player2 = new Player("Fredrik");
+            var player1 = new Player("Player 1");
+            var player2 = new Player("Player 2");
             var set = new Set(player1, player2);
 
             for (int i = 0; i < 6; i++)

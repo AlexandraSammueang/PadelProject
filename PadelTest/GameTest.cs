@@ -111,5 +111,4 @@ namespace PadelTest
         
     }
 }
-//check when its 0-0
-//viktiga är många olika testfall inte att de behöver gå grönt, bra teckning på 1 klass än lite på alla. Gametest MKT!!!
+

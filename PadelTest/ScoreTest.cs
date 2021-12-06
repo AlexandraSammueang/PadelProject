@@ -27,8 +27,8 @@ namespace PadelTest
         [Fact]
         public void Score_Shold_Not_Allow_Negativ_Value() //this is a bugg, should not be able to reduce score.
         {
-            var player1 = new Player("Alexandra");
-            var player2 = new Player("Fredrik");
+            var player1 = new Player("Player 1");
+            var player2 = new Player("Player 2 ");
             var game = new Game(player1, player2);
 
             game.Point(player1);

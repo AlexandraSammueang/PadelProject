@@ -11,8 +11,8 @@ namespace PadelTest
         [Fact]
         public void PlayerTest_Check_Name_NotNull()
         {
-            var player1 = new Player("Alexandra");
-            var player2 = new Player("Fredrik");
+            var player1 = new Player("Player 1");
+            var player2 = new Player("Player 2");
 
             Assert.NotNull(player1.Name);
             Assert.NotNull(player2.Name); //check if null
@@ -22,8 +22,8 @@ namespace PadelTest
         [Fact]
         public void PlayerTest_Check_Name_Empty()
         {
-            var player1 = new Player("Alexandra");
-            var player2 = new Player("Fredrik");
+            var player1 = new Player("Player 1");
+            var player2 = new Player("Player 2 ");
 
             Assert.NotEmpty(player1.Name); //check if not empty
             Assert.NotEmpty(player2.Name); //check if not empty
@@ -36,7 +36,7 @@ namespace PadelTest
         [InlineData(3, 3)]
         public void Player_Point_Score(int nrOfTimes, int expected)
         {
-            var player1 = new Player("Alexandra");
+            var player1 = new Player("Player 1");
 
             for (int i = 0; i < nrOfTimes; i++)
             {

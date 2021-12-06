@@ -31,14 +31,14 @@ namespace Padel
                 _sets[^1].Point(player);
 
             }
-            //_sets[0].Point(player); // bugg ej plats 0
+            //_sets[0].Point(player); // bugg /not working
         }
 
         public Score MatchScore()
         {
             return new Score();
         }
-        public string ScoreString()
+        public string ScoreString() //Add this metod to count scores
         {
             if (_player1.Score._Score == 3)
             {
