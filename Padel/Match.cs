@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Padel
 {
     public class Match
     {
-        List<Set> _sets;
+        public List<Set> _sets { get; } = new List<Set>();
         public Player _player1;
         public Player _player2;
         public Match(int numberOfSets, Player player1, Player player2)
@@ -21,12 +20,35 @@ namespace Padel
 
         public void Point(Player player)
         {
-           // _sets[0].Point(player);
+            if (player.Score._Score > 4)
+            {
+                var set = new Set(player, player);
+                set.Point(player);
+                _sets.Add(set);
+            }
+            else
+            {
+                _sets[^1].Point(player);
+
+            }
+            //_sets[0].Point(player); // bugg ej plats 0
         }
 
         public Score MatchScore()
         {
             return new Score();
+        }
+        public string ScoreString()
+        {
+            if (_player1.Score._Score == 3)
+            {
+                return $"{_player1.Name} wins the match";
+            }
+            else if (_player2.Score._Score == 3)
+            {
+                return $"{_player2.Name} wins the match";
+            }
+            return $"{_player1.Name} score is: {_player1.Score._Score} \n {_player2.Name} score is: {_player2.Score._Score}";
         }
     }
 }
