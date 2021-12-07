@@ -5,6 +5,12 @@ namespace PadelTest
 {
     public class GameTest
     {
+        /// <summary>
+        /// Testing 2 cases by giving the winning point to player 1 vs player 2 and see correct player wins
+        /// </summary>
+        /// <param name="gameCase"></param>
+        /// <param name="expectedScore"></param>
+        /// <param name="expected"></param>
         [Theory]
         [InlineData(1, 5, "Player 1 wins")]
         [InlineData(2, 5, "Player 2 wins")]
@@ -32,7 +38,9 @@ namespace PadelTest
 
             Assert.Equal(expected, game.ScoreString());
         }
-
+        /// <summary>
+        /// Testing if same score duce
+        /// </summary>
         [Fact]
         public void Deuce_Test()
         {
@@ -52,6 +60,10 @@ namespace PadelTest
 
             Assert.Equal("Deuce", result);
         }
+
+        /// <summary>
+        /// Testing if player wins with 2 point after deuce
+        /// </summary>
 
         [Fact]
         public void Winner_After_Deuce_player1()
@@ -91,6 +103,10 @@ namespace PadelTest
 
             Assert.Equal("Player 2 wins", result);
         }
+
+        /// <summary>
+        /// Test if only 1 point after deuce no win
+        /// </summary>
         [Fact]
         public void MatchPoint_After_Deuce_Only1Point()
         {

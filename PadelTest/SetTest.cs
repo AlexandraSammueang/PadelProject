@@ -5,6 +5,9 @@ namespace PadelTest
 {
     public class SetTest
     {
+     /// <summary>
+     /// Test if point added to list
+     /// </summary>
         [Fact] 
         public void Set_List_Test()
         {
@@ -18,6 +21,9 @@ namespace PadelTest
             }
             Assert.Single(set._games);
         }
+        /// <summary>
+        /// Test if index 0 is set and put in place 1
+        /// </summary>
         [Fact]
         public void SetTest_List_Limit_True()
         {

@@ -8,6 +8,9 @@ namespace PadelTest
 {
     public class PlayerTest
     {
+        /// <summary>
+        /// Testing Player Name is not null
+        /// </summary>
         [Fact]
         public void PlayerTest_Check_Name_NotNull()
         {
@@ -15,20 +18,28 @@ namespace PadelTest
             var player2 = new Player("Player 2");
 
             Assert.NotNull(player1.Name);
-            Assert.NotNull(player2.Name); //check if null
+            Assert.NotNull(player2.Name); 
 
 
         }
+        /// <summary>
+        /// Testing  Player Name not Empty
+        /// </summary>
         [Fact]
         public void PlayerTest_Check_Name_Empty()
         {
             var player1 = new Player("Player 1");
             var player2 = new Player("Player 2 ");
 
-            Assert.NotEmpty(player1.Name); //check if not empty
-            Assert.NotEmpty(player2.Name); //check if not empty
+            Assert.NotEmpty(player1.Name); 
+            Assert.NotEmpty(player2.Name); 
 
         }
+        /// <summary>
+        /// Test adding point to player, with diffrent values 
+        /// </summary>
+        /// <param name="nrOfTimes"></param>
+        /// <param name="expected"></param>
 
         [Theory]
         [InlineData(1, 1)]

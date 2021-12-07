@@ -20,7 +20,7 @@ namespace Padel
 
         public void Point(Player player)
         {
-            if (player.Score._Score > 4)
+            if (player.Score._Score > 3)
             {
                 var set = new Set(player, player);
                 set.Point(player);

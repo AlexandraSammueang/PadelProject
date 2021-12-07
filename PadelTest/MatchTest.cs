@@ -5,8 +5,11 @@ namespace PadelTest
 {
     public class MatchTest
     {
+       /// <summary>
+       /// Test if match is 3 set
+       /// </summary>
         [Fact]
-        public void Match_Test_List_3Sets()
+        public void Match_Test_List_3Sets() 
         {
             var player1 = new Player("Player 1");
             var player2 = new Player("Player 2");
@@ -21,9 +24,11 @@ namespace PadelTest
             Assert.Equal(3, match._sets.Count);
 
         }
-
+        /// <summary>
+        /// Test if to many sets, after 3 sets match end, even after giving player 1 four sets.
+        /// </summary>
         [Fact]
-        public void Match_Test_List_ToManySets() // not allowed to get 4 sets
+        public void Match_Test_List_ToManySets() 
         {
             var player1 = new Player("Player 1");
             var player2 = new Player("Player 2 ");
@@ -38,11 +43,17 @@ namespace PadelTest
             Assert.Equal(3, match._sets.Count);
 
         }
+        /// <summary>
+        /// Testing 3 cases with diffrent values to check if match score workes
+        /// </summary>
+        /// <param name="numberOfPoints"></param>
+        /// <param name="gameCase"></param>
+        /// <param name="expected"></param>
         [Theory]
         [InlineData(3, 0, "Player 1 wins the match")]
         [InlineData(3, 1, "Player 2 wins the match")]
         [InlineData(0, 2, "Player 1 score is: 0 \n Player 2 score is: 2")]
-        public void Match_ScoreString_Sholud_Return_Winner(int numberOfPoints, int gameCase, string expected)
+        public void Match_ScoreString_Sholud_Return_Winner_otherwise_score(int numberOfPoints, int gameCase, string expected)
         {
             Player player1 = new Player("Player 1");
             Player player2 = new Player("Player 2");
@@ -69,7 +80,12 @@ namespace PadelTest
             var result = match.ScoreString();
             Assert.Equal(result, expected);
         }
-
+        /// <summary>
+        /// Testing 3 cases with values to 
+        /// </summary>
+        /// <param name="_score1"></param>
+        /// <param name="_score2"></param>
+        /// <param name="expected"></param>
         [Theory]
         [InlineData(3, 2, 0)]
         [InlineData(1, 3, 0)]
@@ -86,18 +102,19 @@ namespace PadelTest
             Assert.Equal(result._Score, expected);
 
         }
+        /// <summary>
+        /// Test match point , should not be able too add point after 3. This is a bugg!
+        /// </summary>
         [Fact]
-        public void MatchPoint_Should_Increase_List()
+        public void MatchPoint_Test_Add_ToMany_Points() 
         {
             Player player1 = new Player("Player 1");
             Player player2 = new Player("Player 2");
             Match match = new Match(3, player1, player2);
             player1.Score._Score = 3;
             match.Point(player1);
-            Assert.Single(match._sets[0]._games);
+            Assert.Equal(3, player1.Score._Score);
 
         }
-
-
     }
 }
