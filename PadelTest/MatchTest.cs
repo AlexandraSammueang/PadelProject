@@ -81,27 +81,66 @@ namespace PadelTest
             Assert.Equal(result, expected);
         }
         /// <summary>
-        /// Testing 3 cases with values to 
+        /// Test should return the score in game  
         /// </summary>
-        /// <param name="_score1"></param>
-        /// <param name="_score2"></param>
-        /// <param name="expected"></param>
-        [Theory]
-        [InlineData(3, 2, 0)]
-        [InlineData(1, 3, 0)]
-        [InlineData(0, 0, 0)]
-        public void Score_Should_Return_Score(int _score1, int _score2, int expected)
+        [Fact]
+        public void Match_Score_Return_GameScore()
+        {
+            Player player1 = new Player("Player 1");
+            Player player2 = new Player("Player 2");
+            Game game = new Game(player1, player2);
+            Match match = new Match(3, player1, player2);
+
+            for (int i = 0; i < 4; i++)
+            {
+                game.Point(player1);
+            }
+            var result = match.MatchScore();
+            Assert.True("Player 1 game score: 50 \n Player 2 game score: 0" == result.ToString());
+        }
+        /// <summary>
+        /// Test should return the score in set 
+        /// </summary>
+        [Fact]
+        public void Match_Score_Return_SetScore()
+        {
+            Player player1 = new Player("Player 1");
+            Player player2 = new Player("Player 2");
+            Set set = new Set(player1, player2);
+            Match match = new Match(3, player1, player2);
+
+            for (int i = 0; i < 3; i++)
+            {
+                set.Point(player1);
+            }
+
+            set.Point(player2);
+            set.Point(player2);
+
+            var result = match.MatchScore();
+            Assert.True("Player 1 set score: 3 \n Player 2 set score: 2" == result.ToString());
+        }
+        /// <summary>
+        /// Test should return the score in match
+        /// </summary>
+        [Fact]
+        public void Match_Score_Return_MatchScore()
         {
             Player player1 = new Player("Player 1");
             Player player2 = new Player("Player 2");
             Match match = new Match(3, player1, player2);
 
-            player1.Score._Score = _score1;
-            player2.Score._Score = _score2;
-            var result = match.MatchScore();
-            Assert.Equal(result._Score, expected);
+            for (int i = 0; i < 3; i++)
+            {
+                match.Point(player1);
+            }
+            match.Point(player2);
+            match.Point(player2);
 
+            var result = match.MatchScore();
+            Assert.True("Player 1 match score: 3 \n Player 2 game score: 2" == result.ToString());
         }
+
         /// <summary>
         /// Test match point , should not be able too add point after 3. This is a bugg!
         /// </summary>
